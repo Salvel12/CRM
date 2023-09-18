@@ -13,5 +13,22 @@ app.listen(port, () => {
 });
 
 
+
+//middleware
+app.use(morgan('dev'));
+app.use(myConnection(mysql,{
+  host:localhost,
+  user: root,
+  password: 'contraseña',
+  port: 3306,
+  database:crm
+}, 'single'));
+
+
+
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+//routes
+

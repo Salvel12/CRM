@@ -1,0 +1,32 @@
+{
+  "name": "crm",
+  "version": "1.0.0",
+  "description": "It is a CRM for a university exam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Salvel12/CRM.git"
+  },
+  "author": "Samuel Alvarez Velasquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Salvel12/CRM/issues"
+  },
+  "homepage": "https://github.com/Salvel12/CRM#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.18.2",
+    "express-mysql": "^0.0.1",
+    "express-mysql-session": "^3.0.0",
+    "express-validator": "^7.0.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "timeago.js": "^4.0.2"
+  }
+}
