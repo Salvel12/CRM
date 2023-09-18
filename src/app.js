@@ -14,21 +14,28 @@ app.listen(port, () => {
 
 
 
-//middleware
-app.use(morgan('dev'));
-app.use(myConnection(mysql,{
-  host:localhost,
-  user: root,
-  password: 'contraseña',
-  port: 3306,
-  database:crm
-}, 'single'));
-
-
-
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 //routes
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'login.html'));
+});
+
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'home.html'));
+});
+
+app.get('/agent', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'agent_list.html'));
+});
+
+app.get('/newagent', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'new_agent.html'));
+});
+
+app.get('/editagent', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'agent_edit.html'));
+});
 

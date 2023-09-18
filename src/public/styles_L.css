@@ -1,0 +1,73 @@
+/* public/styles.css */
+body {
+    background-color: beige;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    background-color: #8b0000; /* Rojo ladrillo */
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(245, 245, 245, 0.9);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .input-icon {
+    max-width: 20px;
+    margin-right: 10px;
+  }
+
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #777;
+  }
+
+  input[type="text"]:focus, input[type="password"]:focus {
+    color: #000;
+  }
+
+  
+  
+  .img {
+    text-align: center; /* Centra horizontalmente el contenido */
+    margin-bottom: 20px; /* Agrega espacio entre la imagen y el formulario */
+  }
+  
+  .header-image {
+    max-width: 100%;
+  }
+  
+  .button-link {
+    display: block;
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 10px 20px;
+    background-color: #bc3636; /* Color rojo ladrillo claro */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Bordes redondos */
+    cursor: pointer;
+  }
+
+  .button-link:hover {
+  background-color: #bc3636;
+  }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles5.css">
+  <title>Home</title>
+</head>
+<body>
+    <div class="header">
+        <ul class="nav-list">
+          <li><a href="/home" class="home">Home</a></li>
+          <li><a href="/agent" class="agents">Agents</a></li>
+          <li><a href="#" class="properties">List of Properties</a></li>
+          <li><a href="#" class="customers">Customer List</a></li>
+          <li><a href="#" class="profile">Profile</a></li>
+        </ul>
+      </div>
+
+      <div class="agent-form">
+        <div class="top-row">
+          <div class="input-container">
+            <input type="text" id="NAME" name="NAME" required placeholder="NAME">
+          </div>
+          <div class="input-container">
+            <input type="text" id="SURNAME" name="SURNAME" required placeholder="SURNAME">
+          </div>
+          <div class="input-container">
+            <input type="text" id="ADDRESS" name="ADDRESS" required placeholder="ADDRESS">
+          </div>
+        </div>
+      
+        <div class="middle-row">
+          <div class="input-container">
+            <input type="text" id="phone" name="phone" required placeholder="CELL PHONE">
+          </div>
+          <div class="input-container">
+            <input type="text" id="DNI" name="DNI" required placeholder="DNI">
+          </div>
+          <div class="input-container">
+            <input type="text" id="CARD" name="CARD" required placeholder="CARD CODE">
+          </div>
+        </div>
+      
+        <div class="bottom-row">
+          <div class="file-input-container">
+            <label for="file-upload">AGENT PHOTO:</label>
+            <div class="file-upload-wrapper">
+              <input type="file" id="file-upload" name="file-upload">
+              <img src="/folder.png" alt="Folder Icon">
+            </div>
+          </div>          
+        </div>
+      
+        <div class="submit-button-container">
+          <button class="submit-button">TO ADD</button>
+        </div>
+      </div>
+      
+      
+    
+      <script src="/scripts/add-agent.js"></script>
+    </body>
+    </html>
