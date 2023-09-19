@@ -39,3 +39,6 @@ app.get('/editagent', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'agent_edit.html'));
 });
 
+app.get('/agentsprptys', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'agents_properties.html'));
+});

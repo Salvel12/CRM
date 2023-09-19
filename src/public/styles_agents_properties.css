@@ -1,0 +1,111 @@
+.info {
+    margin-left: 10px
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Estilo base para la casilla de verificación */
+.checkbox-label {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.checkbox-roja {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 30px;
+    height: 30px;
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid white; /* Borde blanco de 2px */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer;
+    outline: none;
+    top: 5px;
+}
+
+/* Estilo para la palomita de verificación */
+.checkbox-roja::before {
+    content: '\2713'; /* Caracter de palomita de verificación */
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 25px; /* Tamaño de la palomita */
+    line-height: 18px; /* Ajustar el espacio dentro del cuadro */
+    text-align: center;
+    color: white; /* Color blanco para la palomita */
+    opacity: 0; /* Inicialmente oculta la palomita */
+    top: 3px;
+    left: 0;
+    transition: opacity 0.2s ease-in-out; /* Transición para hacer visible la palomita */
+}
+
+/* Estilo cuando la casilla está marcada (checked) */
+.checkbox-roja:checked {
+    background-color: #a20f31; /* Color de fondo rojo */
+}
+
+/* Estilo para mostrar la palomita cuando la casilla está marcada */
+.checkbox-roja:checked::before {
+    opacity: 1; /* Hacer visible la palomita */
+}
+
+.lista li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-circle{
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    top: 5px;
+}
+
+.checkbox-circle:checked{
+    background-color: #fff;
+}
+/* Estilo base del botón */
+.boton-rojo {
+    background-color: #a20f31; /* Color de fondo rojo */
+    color: #fff; /* Color del texto blanco */
+    border-radius: 20px; /* Bordes redondeados */
+    margin-left: 20px;
+    width: 120px;
+    height: 34px;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.addProperty{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #a20f31;
+    color: #fff;
+    border-radius: 50%;
+    position: relative;
+    bottom: 7px;
+    font-size: 30px;
+}
+
+.botonAtras{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #d0cecb;
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 80px;
+    font-size: 30px;
+    font-weight: bold;
+}
+  
