@@ -1,0 +1,154 @@
+body {
+    background-color: rgb(136, 130, 130);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    background-color: #8b0000;
+    color: white;
+    padding: 0px;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ocupa toda la altura de la cabecera */
+  }
+  
+  .nav-list li {
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Hace que cada elemento crezca y ocupe el espacio disponible */
+    text-align: center;
+  }
+  
+  .nav-list a {
+    display: block;
+    text-decoration: none;
+    color: beige;
+    padding: 20px; /* Aumenta el tamaño del área de clic */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .nav-list a:hover {
+    background-color: #bc3636; /* Cambia el color de fondo al beige oscuro */
+    color: #8b0000;
+  }
+  
+  .nav-list .home {
+    background-color: #8b0000; /* Color de fondo para "Home" */
+    color: white;
+  }
+  
+  .nav-list .agents {
+    background-color: rgb(123, 123, 87); /* Color de fondo para "Agents" */
+    color: white;
+  }
+  
+  .nav-list .properties {
+    background-color: #8b0000; /* Color de fondo para "List of Properties" */
+    color: white;
+  }
+  
+  .nav-list .customers {
+    background-color: rgb(123, 123, 87); /* Color de fondo para "Customer List" */
+    color: white;
+  }
+  
+  .nav-list .profile {
+    background-color: #8b0000; /* Color de fondo para "Profile" */
+    color: white;
+  }
+
+  .current-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .current-item {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .current-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  
+  .current-name {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .current-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  
+  .add-current {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .add-button {
+    font-size: 50px;
+    color: #8b0000;
+    text-decoration: none;
+  }
+  
+  .add-button:hover {
+    color: #bc3636;
+  }
+
+  .delete-button{
+    display: block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: rgb(123, 123, 87);
+    color: white;
+    border: none;
+    border-radius: 5px; /* Bordes redondos */
+    cursor: pointer;
+  }
+
+
+  .edit {
+    display: block;
+    margin: 10px;
+    padding: 12px 23px;
+    background-color: #bc3636; /* Color rojo ladrillo claro */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Bordes redondos */
+    cursor: pointer;
+  }
+
+  .ver {
+    font-size: 30px;
+    margin: 10px;
+    color: #8b0000;
+    text-decoration: none;
+  }
