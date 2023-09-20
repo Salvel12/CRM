@@ -1,0 +1,27 @@
+.center{
+    text-align: center;
+}
+
+.button-center{
+    display: flex;
+    justify-content: center;
+}
+
+.button-link{
+    text-decoration: none;
+    margin: 5px;
+}
+
+.button-red {
+    background-color: #a20f31; /* Color de fondo rojo */
+    color: #fff; /* Color del texto blanco */
+    border-radius: 20px; /* Bordes redondeados */
+    width: 120px;
+    height: 34px;
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
