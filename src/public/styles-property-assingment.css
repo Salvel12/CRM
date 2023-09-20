@@ -1,0 +1,28 @@
+.center {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.center input {
+    width: 50%;
+    height: 70px;
+    text-align: center;
+    font-size: 36px;
+}
+
+.center h4 {
+    margin-top: 100px;
+}
+
+.center select{
+    border-radius: 17px;
+    width: 15%;
+    height: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.center #submit{
+    margin-top: 10%;
+}

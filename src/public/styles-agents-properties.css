@@ -84,6 +84,11 @@
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
+.button-link{
+    text-decoration: none;
+    color: black;
+}
+
 .addProperty{
     width: 40px;
     height: 40px;

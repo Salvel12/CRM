@@ -50,3 +50,11 @@ app.get('/view-property', (req, res) => {
 app.get('/property-details', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'property-details.html'));
 });
+
+app.get('/property-list', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'property-list.html'));
+});
+
+app.get('/property-assignment', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'property-assignment.html'));
+});

@@ -1,0 +1,67 @@
+h4{
+    margin: 30px;
+}
+
+.lista{
+    list-style-type: none;
+    text-align: left;
+}
+
+.lista li{
+    margin: 25px;
+}
+
+.buttons li{
+    display: flex;
+    align-items: center;
+}
+
+.lista li a{
+    color: black;
+    text-decoration: none;
+    
+}
+
+.btnEdit{
+    background-color: #a20f31;
+    color: #fff;
+    border-radius: 40px;
+    margin-right: 20px;
+    width: 150px;
+    height: 47px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btnDelete{
+    background-color: #fff;
+    color: black;
+    border-color: #90885f;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 40px;
+    width: 120px;
+    height: 47px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.addProperty{
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #a20f31;
+    color: #fff;
+    border-radius: 50%;
+    position: relative;
+    bottom: 7px;
+    font-size: 30px;
+}
+
+.btnAdd{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-style: italic;
+}
