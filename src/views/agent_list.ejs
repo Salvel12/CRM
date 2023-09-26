@@ -20,15 +20,23 @@
       <div class="agent-list">
         <div class="agent-item">
           <div class="agent-info">
-            <span class="agent-name">COSME FULANITO</span>
-            <span class="agent-actions">
-              <a href="/agents-properties" class="ver">🔍</a>
-              <a href="/editagent" class="edit">edit</a>
-              <button class="delete-button">Delete</button>
-            </span>
+            
+             
+            <% results.forEach((agent) => { %>
+              <div class="agent-item">
+                <div class="agent-info">
+                  <span class="agent-name"><%= agente.Name_agent %></span>
+                  <span class="agent-actions">
+                    <a href="/agents-properties" class="ver">🔍</a>
+                    <a href="/editagent" class="edit">Edit</a>
+                    <button class="delete-button">Delete</button>
+                  </span>
+                </div>
+              </div>
+            <% }); %>
           </div>
         </div>
-        <!-- Repeat the above structure for each agent -->
+        <!-- repite lo de arriba por cada agente -->
       </div>
     
       <div class="add-agent">

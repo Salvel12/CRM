@@ -1,32 +1,37 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const morgan = require('morgan');
 const mysql = require('mysql');
-const myConnection = require('express-myconnection');
 const path = require('path');
 const app = express();
 const port = 3000;
 const ejs = require('ejs');
 
+
+const crudagent = require('./controllers/CRUD_agent');
+app.post('/save', crudagent.save);
+
 app.set('view engine', 'ejs');
+
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
 
 //config
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
 
-//middleware
-app.use(morgan('dev'));
-app.use(myConnection(mysql,{
-  host: 'localhost',
-  user: 'admin',
-  password: 'admin',
-  port: 3306,
-  database: 'crm'
-}, 'single'));
+
+
+const conexion = require('./database');
 
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
 
 
 //routes
@@ -34,12 +39,20 @@ app.get('/', (req, res) => {
   res.render(path.join(__dirname, 'views', 'login'));
 });
 
+
 app.get('/home', (req, res) => {
   res.render(path.join(__dirname, 'views', 'home'));
 });
 
 app.get('/agent', (req, res) => {
-  res.render(path.join(__dirname, 'views', 'agent_list.ejs'));
+  conexion.query('SELECT* FROM agent', (error, results)=>{
+    if(error){
+      throw error;
+    }else{
+      res.render(path.join(__dirname, 'views', 'agent_list.ejs'),{results:results});
+    }
+  })
+  
 });
 
 app.get('/newagent', (req, res) => {
@@ -73,3 +86,4 @@ app.get('/property-assignment', (req, res) => {
 app.get('/customers', (req, res) => {
   res.render(path.join(__dirname, 'views', 'currentcustomers.ejs'));
 });
+
