@@ -6,6 +6,7 @@ const myConnection = require('express-myconnection');
 const path = require('path');
 const app = express();
 const port = 3000;
+const ejs = require('ejs');
 
 app.set('view engine', 'ejs');
 
@@ -30,45 +31,45 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'login.html'));
+  res.render(path.join(__dirname, 'views', 'login'));
 });
 
 app.get('/home', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'home.html'));
+  res.render(path.join(__dirname, 'views', 'home'));
 });
 
 app.get('/agent', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'agent_list.html'));
+  res.render(path.join(__dirname, 'views', 'agent_list.ejs'));
 });
 
 app.get('/newagent', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'new_agent.html'));
+  res.render(path.join(__dirname, 'views', 'new_agent.ejs'));
 });
 
 app.get('/editagent', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'agent_edit.html'));
+  res.render(path.join(__dirname, 'views', 'agent_edit.ejs'));
 });
 
 app.get('/agents-properties', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'agents-properties.html'));
+  res.render(path.join(__dirname, 'views', 'agents-properties.ejs'));
 });
 
 app.get('/view-property', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'view-property.html'));
+  res.render(path.join(__dirname, 'views', 'view-property.ejs'));
 });
 
 app.get('/property-details', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'property-details.html'));
+  res.render(path.join(__dirname, 'views', 'property-details.ejs'));
 });
 
 app.get('/property-list', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'property-list.html'));
+  res.render(path.join(__dirname, 'views', 'property-list.ejs'));
 });
 
 app.get('/property-assignment', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'property-assignment.html'));
+  res.render(path.join(__dirname, 'views', 'property-assignment.ejs'));
 });
 
 app.get('/customers', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'currentcustomers.html'));
+  res.render(path.join(__dirname, 'views', 'currentcustomers.ejs'));
 });
