@@ -1,27 +1,60 @@
-.center{
+.center {
     text-align: center;
 }
 
-.button-center{
+.button-center {
     display: flex;
     justify-content: center;
 }
 
-.button-link{
+.button-link {
     text-decoration: none;
     margin: 5px;
 }
 
 .button-red {
-    background-color: #a20f31; /* Color de fondo rojo */
-    color: #fff; /* Color del texto blanco */
-    border-radius: 20px; /* Bordes redondeados */
-    width: 120px;
-    height: 34px;
-    border: none; /* Elimina el borde del botón */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    display: flex;
+    background-color: #a20f31;
+    /* Color de fondo rojo */
+    color: #fff;
+    /* Color del texto blanco */
+    border-radius: 60px;
+    /* Bordes redondeados */
+    width: 240px;
+    height: 68px;
+    border: none;
+    /* Elimina el borde del botón */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el botón */
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 26px;
+}
+
+img {
+    max-width: 600px;
+    border-radius: 15%;
+    margin-top: 60px;
+}
+
+.left-img {
+    flex: 0.5;
+}
+
+.right-img {
+    flex: 0.4;
+}
+
+.boton-atras{
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: #d0cecb;
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 80px;
+    font-size: 30px;
+    font-weight: bold;
+
 }

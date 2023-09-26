@@ -58,3 +58,7 @@ app.get('/property-list', (req, res) => {
 app.get('/property-assignment', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'property-assignment.html'));
 });
+
+app.get('/customers', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'currentcustomers.html'));
+});
