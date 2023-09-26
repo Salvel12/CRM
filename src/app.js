@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
 const path = require('path');
+const app = express();
 const port = 3000;
 
 app.set('view engine', 'ejs');
@@ -16,11 +17,11 @@ app.listen(port, () => {
 //middleware
 app.use(morgan('dev'));
 app.use(myConnection(mysql,{
-  host:localhost,
-  user: root,
-  password: 'contraseña',
+  host: 'localhost',
+  user: 'admin',
+  password: 'admin',
   port: 3306,
-  database:crm
+  database: 'crm'
 }, 'single'));
 
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
