@@ -4,7 +4,8 @@
   "description": "It is a CRM for a university exam",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
