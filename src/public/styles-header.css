@@ -72,3 +72,8 @@ body{
 .right {
   flex: 0.4;
 }
+
+a {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Hereda el color del texto de su contenedor */
+}

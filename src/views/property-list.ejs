@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROPERTY LIST</title>
+    <title>Property list</title>
     <link rel="stylesheet" href="/styles-header.css">
     <link rel="stylesheet" href="/styles-property-list.css">
 </head>
@@ -30,28 +30,32 @@
         </div>
     </div>
     <div class="container">
-        
+
         <div class="left">
             <ul class="lista">
-                <% results.forEach((property) => { %>
-                <li><p><%= property.Property_ID %></p></li>
-                <% }); %>
+                <% results.forEach((property)=> { %>
+                    <li>
+                        <p>
+                            <%= property.Property_ID %>
+                        </p>
+                    </li>
+                    <% }); %>
             </ul>
         </div>
         <div class="right">
             <ul class="lista buttons">
-                <% results.forEach((property) => { %>
-                <li><img src="" alt="">
-                    <a href="/" class="ver">🔍</a>
-                    <button class="btnEdit">Edit</button>
-                    <button class="btnDelete">Delete</button>
-                </li>
-                <% }); %>
+                <% results.forEach((property)=> { %>
+                    <li><img src="" alt="">
+                        <a href="/" class="ver">🔍</a>
+                        <button class="btnEdit">Edit</button>
+                        <button class="btnDelete">Delete</button>
+                    </li>
+                    <% }); %>
             </ul>
         </div>
     </div>
     <div class="btnAdd">
-        <a href="">
+        <a href="/new-property">
             <button class="addProperty">+</button>
         </a>
         <label for="">ADD A NEW PROPERTY</label>

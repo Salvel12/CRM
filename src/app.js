@@ -86,6 +86,10 @@ app.get('/property-list', (req, res) => {
   })
 });
 
+app.get('/new-property', (req, res) => {
+  res.render(path.join(__dirname, 'views', 'new-property.ejs'))
+})
+
 app.get('/property-assignment', (req, res) => {
   res.render(path.join(__dirname, 'views', 'property-assignment.ejs'));
 });
@@ -93,4 +97,3 @@ app.get('/property-assignment', (req, res) => {
 app.get('/customers', (req, res) => {
   res.render(path.join(__dirname, 'views', 'currentcustomers.ejs'));
 });
-
