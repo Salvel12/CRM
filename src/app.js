@@ -12,8 +12,6 @@ app.post('/save', crudagent.save);
 
 app.set('view engine', 'ejs');
 
-//Route for create property register
-
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
