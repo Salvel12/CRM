@@ -12,7 +12,7 @@ app.post('/save', crudagent.save);
 
 app.set('view engine', 'ejs');
 
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 //config
@@ -23,6 +23,7 @@ app.listen(port, () => {
 
 
 const conexion = require('./database');
+const { ifError } = require('assert');
 
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,14 +46,14 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/agent', (req, res) => {
-  conexion.query('SELECT* FROM agent', (error, results)=>{
-    if(error){
+  conexion.query('SELECT* FROM agent', (error, results) => {
+    if (error) {
       throw error;
-    }else{
-      res.render(path.join(__dirname, 'views', 'agent_list.ejs'),{results:results});
+    } else {
+      res.render(path.join(__dirname, 'views', 'agent_list.ejs'), { results: results });
     }
   })
-  
+
 });
 
 app.get('/newagent', (req, res) => {
@@ -76,7 +77,13 @@ app.get('/property-details', (req, res) => {
 });
 
 app.get('/property-list', (req, res) => {
-  res.render(path.join(__dirname, 'views', 'property-list.ejs'));
+  conexion.query('SELECT * FROM property', (error, results) => {
+    if (error) {
+      throw error;
+    } else {
+      res.render(path.join(__dirname, 'views', 'property-list.ejs'), { results: results });
+    }
+  })
 });
 
 app.get('/property-assignment', (req, res) => {

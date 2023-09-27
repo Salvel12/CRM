@@ -1,4 +1,4 @@
-create database crm;
+
 
 use crm;
 
