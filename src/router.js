@@ -3,6 +3,15 @@ const router = express.Router();
 const path = require('path');
 const conexion = require('../database/db');
 
+//Invoke methods for the agent CRUD (Create)
+const crudagent = require('./controllers/CRUD_agent');
+router.post('/save', crudagent.save);
+
+//Invoke methods for the property CRUD (Create)
+const crud_property = require('./controllers/crud-property');
+router.post('/saveproperty', crud_property.save)
+
+
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 router.use(express.static(path.join(__dirname, 'public')));
 
