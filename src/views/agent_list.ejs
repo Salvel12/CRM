@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles_AL.css">
   <title>Home</title>
 </head>
-<body>
-    <div class="header">
-        <ul class="nav-list">
-          <li><a href="/home" class="home">Home</a></li>
-          <li><a href="/agent" class="agents">Agents</a></li>
-          <li><a href="/property-list" class="properties">List of Properties</a></li>
-          <li><a href="/customers" class="customers">Customer List</a></li>
-          <li><a href="#" class="profile">Profile</a></li>
-        </ul>
-      </div>
-    
-      <div class="agent-list">
-        <div class="agent-item">
-          <div class="agent-info">
-            
-             
-            <% results.forEach((agent) => { %>
-              <div class="agent-item">
-                <div class="agent-info">
-                  <span class="agent-name"><%= agente.Name_agent %></span>
-                  <span class="agent-actions">
-                    <a href="/agents-properties" class="ver">🔍</a>
-                    <a href="/editagent" class="edit">Edit</a>
-                    <button class="delete-button">Delete</button>
-                  </span>
-                </div>
-              </div>
-            <% }); %>
-          </div>
-        </div>
-        <!-- repite lo de arriba por cada agente -->
-      </div>
-    
-      <div class="add-agent">
-        <a href="/newagent" class="add-button">+</a>
-      </div>
 
-  
+<body>
+  <div class="header">
+    <ul class="nav-list">
+      <li><a href="/home" class="home">Home</a></li>
+      <li><a href="/agent" class="agents">Agents</a></li>
+      <li><a href="/property-list" class="properties">List of Properties</a></li>
+      <li><a href="/customers" class="customers">Customer List</a></li>
+      <li><a href="#" class="profile">Profile</a></li>
+    </ul>
+  </div>
+
+  <div class="agent-list">
+    <% results.forEach((agent)=> { %>
+    <div class="agent-item">
+      <div class="agent-info">
+          <span class="agent-name">
+            <%= agent.Name_agent %>
+          </span>
+          <span class="agent-actions">
+            <a href="/agents-properties" class="ver">🔍</a>
+            <a href="/editagent" class="edit">Edit</a>
+            <button class="delete-button">Delete</button>
+          </span>
+        </div>
+      </div>
+      <% }); %>
+  </div>
+  <!-- repite lo de arriba por cada agente -->
+  </div>
+
+  <div class="add-agent">
+    <a href="/newagent" class="add-button">+</a>
+  </div>
+
+
 
   <script src="/scripts/agent_list.js"></script>
 
 </body>
+
 </html>

@@ -1,10 +1,10 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const mysql = require('mysql');
-const path = require('path');
 const app = express();
 const port = 3000;
 const ejs = require('ejs');
+
+const path = require('path');
 
 //Route for save registers
 const crudagent = require('./controllers/CRUD_agent');
@@ -23,8 +23,7 @@ app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
 
-const conexion = require('./database');
-const { ifError } = require('assert');
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

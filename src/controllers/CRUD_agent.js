@@ -1,4 +1,4 @@
-const pool = require('../database'); 
+const pool = require('../../database/db'); 
 
 exports.save = (req, res)=>{ 
     console.log(req.body); // Verifica qué datos se reciben en req.body
