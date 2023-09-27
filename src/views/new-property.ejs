@@ -25,10 +25,13 @@
         <form action="/save" method="post">
             <input type="text" name="Property_ID" placeholder="Property ID">
             <input type="text" name="address" placeholder="Address">
-            <input type="text" name="category_ID" placeholder="Property Type">
-            <input type="text" name="Customer_ID" placeholder="Customer ID">
+            <select name="category_ID" id="">
+                <option value="Sale">Sale</option>
+                <option value="Lease">Lease</option>
+            </select>
+            <input type="text" name="Customer_name" placeholder="Customer Name">
             <input type="text" name="time" placeholder="time of property">
-            <input type="text" name="agent_ID" placeholder="agent ID">
+            <input type="text" name="Name_agent" placeholder="Name Agent">
             <input type="text" name="Owner_history" placeholder="Owner history">
             <a href="" class="button-link">Guardar</a>
             <a href="/property-list" class="button-link">Cancel</a>
