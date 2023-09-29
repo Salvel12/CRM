@@ -1,6 +1,6 @@
 const pool = require('../../database/db')
 
-let client_id = 1234;
+let client_id;
 let agent_id;
 
 exports.save = (req, res) => {
@@ -46,7 +46,7 @@ exports.save = (req, res) => {
             if (error)
                 throw error;
             else
-                res.redirect('/list-properties')
+                res.redirect('/property-list')
         });
     }).catch(error => {
         throw error;
