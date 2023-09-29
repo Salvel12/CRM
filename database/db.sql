@@ -6,10 +6,10 @@ use crm;
 
 CREATE TABLE `agent` (
   `agent_id` int(10) NOT NULL AUTO_INCREMENT,
-  `time` date NOT NULL,
-  `rol` varchar(10) NOT NULL,
   `name` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `time` date NOT NULL,
+  `rol` varchar(10) NOT NULL,
   PRIMARY KEY (`agent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -29,30 +29,6 @@ CREATE TABLE `agent_time` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `agent_properties`
---
-
-CREATE TABLE `agent_properties` (
-  `agent_id` int(10) NOT NULL,
-  `property_id` int(10),
-  PRIMARY KEY (`agent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `agent_customer`
---
-
-CREATE TABLE `agent_customer` (
-  `agent_id` int(10) NOT NULL,
-  `customer_id` int(10),
-  PRIMARY KEY (`agent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `customer`
 --
 
@@ -62,7 +38,7 @@ CREATE TABLE `customer` (
   `name` varchar(30),
   `e-mail` varchar(50),
   `cell_number` int(10),
-  `property_id` int(10),
+  `agent_id` int(10),
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -74,27 +50,29 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `property` (
   `property_id` int(10) NOT NULL AUTO_INCREMENT,
-  `time` date NOT NULL,
-  `owner_history` text NOT NULL,
-  `address` varchar(100) NOT NULL,
   `property_type` varchar(10) NOT NULL,
+  `property_bussines_type` varchar(10) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `price` int(10) NOT NULL,
   `agent_id` int(10) NOT NULL,
-  `customer_id` int(10) NOT NULL,
   PRIMARY KEY (`property_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sales`
+-- Estructura de tabla para la tabla `history`
 --
 
-CREATE TABLE `sales` (
-  `Cost` int(100) NOT NULL,
-  `agent_id` int(10) NOT NULL,
-  `customer_id` int(10) NOT NULL
+CREATE TABLE `history` (
+  `history_id` int(10) NOT NULL AUTO_INCREMENT,
+  `rol` varchar(20) NOT NULL,
+  `cost` int(10) NOT NULL,
+  `date` date NOT NULL,
+  `customer_id` int(10) NOT NULL,
+  `property_id` int(10) NOT NULL,
+  PRIMARY KEY (`history_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- Índices para tablas volcadas
 
 -- Indices de la tabla `agent_time`
@@ -103,36 +81,23 @@ ALTER TABLE `agent_time`
   ADD PRIMARY KEY (`agent_id`);
 
 --
--- Indices de la tabla `agent_properties`
---
-ALTER TABLE `agent_properties`
-  ADD KEY (`property_id`);
-
---
--- Indices de la tabla `agent_customer`
---
-ALTER TABLE `agent_customer`
-  ADD KEY (`customer_id`);
-
---
 -- Indices de la tabla `customer`
 --
 ALTER TABLE `customer`
-  ADD KEY `property_id` (`property_id`);
+  ADD KEY `agent_id` (`agent_id`);
 
 --
 -- Indices de la tabla `property`
 --
 ALTER TABLE `property`
-  ADD KEY `agent_id` (`agent_id`),
-  ADD KEY `customer_id` (`customer_id`);
+  ADD KEY `agent_id` (`agent_id`);
 
 --
--- Indices de la tabla `sales`
+-- Indices de la tabla `history`
 --
-ALTER TABLE `sales`
-  ADD PRIMARY KEY (`customer_id`),
-  ADD KEY `agent_id` (`agent_id`);
+ALTER TABLE `history`
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `property_id` (`property_id`);
 
 --
 -- Restricciones para tablas volcadas
@@ -145,36 +110,20 @@ ALTER TABLE `agent_time`
   ADD CONSTRAINT `agent_time_ibfk_1` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`agent_id`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `agent_properties`
---
-ALTER TABLE `agent_properties`
-  ADD CONSTRAINT `agent_properties_ibfk_1` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`agent_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `agent_properties_ibfk_2` FOREIGN KEY (`property_id`) REFERENCES `property` (`property_id`) ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `agent_customer`
---
-ALTER TABLE `agent_customer`
-  ADD CONSTRAINT `agent_customer_ibfk_1` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`agent_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `agent_customer_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE;
-
---
 -- Filtros para la tabla `customer`
 --
 ALTER TABLE `customer`
-  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`property_id`) REFERENCES `property` (`property_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`agent_id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `property`
 --
 ALTER TABLE `property`
-  ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`agent_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `property_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `property_ibfk_1` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`agent_id`) ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `sales`
+-- Filtros para la tabla `history`
 --
-ALTER TABLE `sales`
-  ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`agent_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `sales_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE;
-COMMIT;
+ALTER TABLE `history`
+  ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `history_ibfk_2` FOREIGN KEY (`property_id`) REFERENCES `property` (`property_id`) ON UPDATE CASCADE;
