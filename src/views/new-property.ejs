@@ -35,17 +35,17 @@
                 <option value="Lease">Lease</option>
                 <option value="Leased">Leased</option>
             </select>
-            <input type="text" name="address" id="address" placeholder="Address">
-            <input type="text" name="price" id="price" placeholder="Price">
-            <input type="text" name="agent_name" id="agent_name" placeholder="Agent Name">
+            <input type="text" name="address" id="address" required placeholder="Address">
+            <input type="number" name="price" id="price" min="0" required placeholder="Price">
+            <input type="text" name="agent_name" id="agent_name" required placeholder="Agent Name">
             <!-- Data of history table -->
             <label for="">History of apartment (Optional)</label>
             <select name="rol" id="rol">
                 <option value="Owner">Owner</option>
                 <option value="Tenant">Tenant</option>
             </select>
-            <input type="number" name="cost" id="cost" min="0"  placeholder="Sell Price">
-            <input type="date" name="date" id="date" placeholder="Date of the Last Lease or Sale">
+            <input type="number" name="cost" id="cost" min="0"  required placeholder="Sell Price">
+            <input type="date" name="date" id="date" required placeholder="Date of the Last Lease or Sale">
             <button class="button" type="submit">Guardar</button>
             <a href="/property-list" class="button-link">Cancel</a>
         </form>
