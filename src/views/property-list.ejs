@@ -24,6 +24,7 @@
     <div class="container">
         <div class="left">
             <h4>PROPERTY CODE</h4>
+            <input type="text">
         </div>
         <div class="right">
             <h4>ACTIONS</h4>
@@ -36,7 +37,7 @@
                 <% results.forEach((property)=> { %>
                     <li>
                         <p>
-                            <%= property.Property_ID %>
+                            <%= property.address %>
                         </p>
                     </li>
                     <% }); %>
