@@ -14,6 +14,18 @@ router.post('/saveproperty', crud_property.save)
 //Invoke methods for the agent CRUD (Edit)
 router.post('/update', crudagent.update);
 
+//Invoke methods for the agent CRUD (Delete)
+router.get('/delete/:name',(req, res)=>{
+    const name = req.params.name; 
+    conexion.query('DELETE FROM agent WHERE name = ?', [name], (error, results) =>{
+        if (error) {
+            throw error;
+        } else {
+            res.redirect("/agent")
+        } 
+    })
+})
+
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 router.use(express.static(path.join(__dirname, 'public')));
 
