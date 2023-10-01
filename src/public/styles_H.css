@@ -14,17 +14,17 @@ body {
   .nav-list {
     list-style: none;
     display: flex;
-    justify-content: space-around; /* Distribuye los elementos de manera uniforme */
-    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-around; 
+    align-items: center; 
     margin: 0;
     padding: 0;
-    height: 100%; /* Ocupa toda la altura de la cabecera */
+    height: 100%; 
   }
   
   .nav-list li {
     margin: 0;
     padding: 0;
-    flex-grow: 1; /* Hace que cada elemento crezca y ocupe el espacio disponible */
+    flex-grow: 1;
     text-align: center;
   }
   
@@ -32,37 +32,37 @@ body {
     display: block;
     text-decoration: none;
     color: beige;
-    padding: 20px; /* Aumenta el tamaño del área de clic */
+    padding: 20px; 
     transition: background-color 0.3s ease-in-out;
   }
   
   .nav-list a:hover {
-    background-color: #bc3636; /* Cambia el color de fondo al beige oscuro */
+    background-color: #bc3636;
     color: #8b0000;
   }
   
   .nav-list .home {
-    background-color: #8b0000; /* Color de fondo para "Home" */
+    background-color: #8b0000; 
     color: white;
   }
   
   .nav-list .agents {
-    background-color: rgb(123, 123, 87); /* Color de fondo para "Agents" */
+    background-color: rgb(123, 123, 87); 
     color: white;
   }
   
   .nav-list .properties {
-    background-color: #8b0000; /* Color de fondo para "List of Properties" */
+    background-color: #8b0000; 
     color: white;
   }
   
   .nav-list .customers {
-    background-color: rgb(123, 123, 87); /* Color de fondo para "Customer List" */
+    background-color: rgb(123, 123, 87); 
     color: white;
   }
   
   .nav-list .profile {
-    background-color: #8b0000; /* Color de fondo para "Profile" */
+    background-color: #8b0000; 
     color: white;
   }
 

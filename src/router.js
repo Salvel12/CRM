@@ -3,6 +3,8 @@ const router = express.Router();
 const path = require('path');
 const conexion = require('../database/db');
 
+
+
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 router.use(express.static(path.join(__dirname, 'public')));
 

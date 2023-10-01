@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 const port = 3000;
 const ejs = require('ejs');
+const bodyParser = require('body-parser');
 
 const path = require('path');
 
@@ -16,11 +17,12 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+app.use(bodyParser.json());
+
 //config
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
-
 
 
 app.use((err, req, res, next) => {
