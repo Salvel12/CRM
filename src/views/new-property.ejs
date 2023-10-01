@@ -22,15 +22,31 @@
         </nav>
     </header>
     <div class="form-container">
-        <form action="/save" method="post">
-            <input type="text" name="Property_ID" placeholder="Property ID">
-            <input type="text" name="address" placeholder="Address">
-            <input type="text" name="category_ID" placeholder="Property Type">
-            <input type="text" name="Customer_ID" placeholder="Customer ID">
-            <input type="text" name="time" placeholder="time of property">
-            <input type="text" name="agent_ID" placeholder="agent ID">
-            <input type="text" name="Owner_history" placeholder="Owner history">
-            <a href="" class="button-link">Guardar</a>
+        <form action="/saveproperty" method="POST">
+            <!-- Data of property table -->
+            <label for="">Apartment information</label>
+            <select name="property_type" id="property_type">
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
+            </select>
+            <select name="property_bussines_type" id="property_bussines_type">
+                <option value="Sale">Sale</option>
+                <option value="Sold">Sold</option>
+                <option value="Lease">Lease</option>
+                <option value="Leased">Leased</option>
+            </select>
+            <input type="text" name="address" id="address" placeholder="Address">
+            <input type="text" name="price" id="price" placeholder="Price">
+            <input type="text" name="agent_name" id="agent_name" placeholder="Agent Name">
+            <!-- Data of history table -->
+            <label for="">History of apartment (Optional)</label>
+            <select name="rol" id="rol">
+                <option value="Owner">Owner</option>
+                <option value="Tenant">Tenant</option>
+            </select>
+            <input type="number" name="cost" id="cost" min="0"  placeholder="Sell Price">
+            <input type="date" name="date" id="date" placeholder="Date of the Last Lease or Sale">
+            <button class="button" type="submit">Guardar</button>
             <a href="/property-list" class="button-link">Cancel</a>
         </form>
     </div>

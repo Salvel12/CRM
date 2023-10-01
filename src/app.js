@@ -1,23 +1,12 @@
 const express = require('express');
-const exphbs = require('express-handlebars');
 const app = express();
 const port = 3000;
-const ejs = require('ejs');
-const bodyParser = require('body-parser');
-
-const path = require('path');
-
-//Route for save registers
-const crudagent = require('./controllers/CRUD_agent');
-app.post('/save', crudagent.save);
 
 app.set('view engine', 'ejs');
 
-
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
-app.use(bodyParser.json());
+app.use('/', require('./router'));
 
 //config
 app.listen(port, () => {
@@ -29,7 +18,3 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
 });
-
-app.use('/', require('./router'));
-
-// Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
