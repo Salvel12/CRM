@@ -7,6 +7,15 @@ exports.save = (req, res)=>{
     const EMAIL = req.body.EMAIL;
     const ROL = req.body.ROL;
     const DNI = req.body.DNI;
+    const DATE = req.body.DATE;
 
-    console.log(NAME + "-" + EMAIL + "-" + ROL + "-" + + "-" + DNI + "-" );
+    pool.query('INSERT INTO agent SET ?',{name:NAME, rol:ROL, time:DATE, email:EMAIL, agent_id:DNI}, (error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            //console.log(results);   
+            res.redirect('../newagent');         
+        }
+    
+    });
 }
