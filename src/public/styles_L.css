@@ -1,4 +1,4 @@
-/* public/styles.css */
+
 body {
     background-color: beige;
     margin: 0;
@@ -7,7 +7,7 @@ body {
   }
   
   .header {
-    background-color: #8b0000; /* Rojo ladrillo */
+    background-color: #8b0000; 
     color: white;
     padding: 10px;
     text-align: center;
@@ -49,8 +49,8 @@ body {
   
   
   .img {
-    text-align: center; /* Centra horizontalmente el contenido */
-    margin-bottom: 20px; /* Agrega espacio entre la imagen y el formulario */
+    text-align: center; 
+    margin-bottom: 20px; 
   }
   
   .header-image {
@@ -59,12 +59,12 @@ body {
   
   .button-link {
     display: block;
-    margin: 0 auto; /* Centrar horizontalmente */
+    margin: 0 auto;
     padding: 10px 20px;
-    background-color: #bc3636; /* Color rojo ladrillo claro */
+    background-color: #bc3636;
     color: white;
     border: none;
-    border-radius: 5px; /* Bordes redondos */
+    border-radius: 5px; 
     cursor: pointer;
   }
 

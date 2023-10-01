@@ -1,7 +1,7 @@
 module.exports = {
     database: {
       host: 'localhost',
-      user: 'root',
+      user: 'admin',
       password: 'admin',
       database: 'crm',
     }
