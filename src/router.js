@@ -11,6 +11,8 @@ router.post('/save', crudagent.save);
 const crud_property = require('./controllers/crud-property');
 router.post('/saveproperty', crud_property.save)
 
+//Invoke methods for the agent CRUD (Edit)
+router.post('/update', crudagent.update);
 
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 router.use(express.static(path.join(__dirname, 'public')));
@@ -42,14 +44,31 @@ router.get('/newagent', (req, res) => {
     res.render(path.join(__dirname, 'views', 'new_agent.ejs'));
 });
 
+
+
 //Route to the edit agent page
-router.get('/editagent', (req, res) => {
-    res.render(path.join(__dirname, 'views', 'agent_edit.ejs'));
+router.get('/editagent/:name', (req, res) => {
+    const name = req.params.name;
+    conexion.query('SELECT * FROM agent WHERE name=?', [name], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render(path.join(__dirname, 'views', 'agent_edit.ejs'), { agent: results [0]});
+        }
+    })
 });
 
+
 //Route to the agent properties page
-router.get('/agents-properties', (req, res) => {
-    res.render(path.join(__dirname, 'views', 'agents-properties.ejs'));
+router.get('/agents-properties/:name', (req, res) => {
+    const name = req.params.name;
+    conexion.query('SELECT * FROM agent WHERE name=?', [name], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render(path.join(__dirname, 'views', 'agents-properties.ejs'), { agent: results [0]});
+        }
+    })
 });
 
 //Route to the view property page

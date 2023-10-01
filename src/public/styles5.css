@@ -101,7 +101,7 @@ body {
   }
   
   button.submit-button {
-    padding: 10px 20px;
+    padding: 15px 30px;
     background-color: #bc3636;
     color: white;
     border: none;
@@ -135,3 +135,13 @@ body {
     align-items: center;
   }
   
+  .cancelar {
+    display: block;
+    margin: 10px;
+    padding: 2px 5px;
+    background-color: #bc3636; 
+    color: white;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+  }

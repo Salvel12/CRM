@@ -27,8 +27,8 @@
             <%= agent.name %>
           </span>
           <span class="agent-actions">
-            <a href="/agents-properties" class="ver">🔍</a>
-            <a href="/editagent" class="edit">Edit</a>
+            <a href="/agents-properties/<%= agent.name %>" class="ver">🔍</a>
+            <a href="/editagent/<%= agent.name %>" class="edit">Edit</a>
             <button class="delete-button">Delete</button>
           </span>
         </div>

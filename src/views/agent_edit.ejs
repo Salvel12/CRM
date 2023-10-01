@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles_AD.css">
+  <link rel="stylesheet" href="/styles5.css">
   <title>Home</title>
 </head>
+
 <body>
-    <div class="header">
-        <ul class="nav-list">
-          <li><a href="/home" class="home">Home</a></li>
-          <li><a href="/agent" class="agents">Agents</a></li>
-          <li><a href="/property-list" class="properties">List of Properties</a></li>
-          <li><a href="/customers" class="customers">Customer List</a></li>
-          <li><a href="#" class="profile">Profile</a></li>
-        </ul>
-      </div>
+  <div class="header">
+    <ul class="nav-list">
+      <li><a href="/home" class="home">Home</a></li>
+      <li><a href="/agent" class="agents">Agents</a></li>
+      <li><a href="/property-list" class="properties">List of Properties</a></li>
+      <li><a href="/customers" class="customers">Customer List</a></li>
+      <li><a href="#" class="profile">Profile</a></li>
+    </ul>
+  </div>
+
+  <% if (agent){ %>
+
+    <form action="/update" method="post">
+      <input id="id" name="id" value="<%= agent.agent_id %>" hidden>
 
       <div class="agent-form">
         <div class="top-row">
           <div class="input-container">
-            <input type="text" id="NAME" name="NAME" required placeholder="NAME">
+            <input type="text" id="NAME" name="NAME" value="<%= agent.name %>" required placeholder="NAME">
           </div>
           <div class="input-container">
-            <input type="text" id="SURNAME" name="SURNAME" required placeholder="SURNAME">
+            <input type="text" id="EMAIL" name="EMAIL" value="<%= agent.email %>" required placeholder="E-MAIL">
           </div>
           <div class="input-container">
-            <input type="text" id="ADDRESS" name="ADDRESS" required placeholder="ADDRESS">
+            <input type="text" id="ROL" name="ROL" value="<%= agent.agent_rol %>" required placeholder="ROL">
           </div>
         </div>
-      
+
         <div class="middle-row">
+
           <div class="input-container">
-            <input type="text" id="phone" name="phone" required placeholder="CELL PHONE">
+            <input type="text" id="DNI" name="DNI" value="<%= agent.agent_id %>" required placeholder="DNI">
           </div>
+
           <div class="input-container">
-            <input type="text" id="PROPERTIES IN CHARGE" name="PROPERTIES IN CHARGE" required placeholder="PROPERTIES IN CHARGE">
+            <input type="date" id="DATE" name="DATE" value="<%= agent.time %>" required
+              placeholder="DATE WHEN GET HIRED">
           </div>
-          <div class="input-container">
-            <input type="text" id="CARD" name="CARD" required placeholder="CARD CODE">
-          </div>
+
         </div>
-      
-        <div class="bottom-row">
-          <div class="input-container">
-            <input type="text" id="DNI" name="DNI" required placeholder="DNI">
-          </div>       
-        </div>
-      
+
+
         <div class="submit-button-container">
-          <button class="submit-button">UPDATE</button>
+          <button type="submit" class="submit-button" tabindex="5">update</button>
         </div>
+
+        <div class="cancelar">
+          <a href="/agent" class="cancelar">Cancelar</a>
+        </div>
+        
+        
       </div>
-      
-      
-    
-      <script src="/scripts/add-agent.js"></script>
-    </body>
-    </html>
+      </form>
+    <% } %>
+
+
+
+</body>
+
+</html>

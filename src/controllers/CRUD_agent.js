@@ -14,8 +14,25 @@ exports.save = (req, res)=>{
             console.log(error);
         }else{
             //console.log(results);   
-            res.redirect('../newagent');         
+            res.redirect('../agent');          
         }
     
     });
+}
+
+exports.update = (req, res)=>{ 
+    const NAME = req.body.NAME;
+    const EMAIL = req.body.EMAIL;
+    const ROL = req.body.ROL;
+    const DNI = req.body.DNI;
+    const DATE = req.body.DATE;
+
+    pool.query('UPDATE agent SET ? WHERE agent_id=?', [{name:NAME, rol:ROL, time:DATE, email:EMAIL}, DNI], (error, results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            //console.log(results);   
+            res.redirect('../agent');         
+        }
+    })
 }
