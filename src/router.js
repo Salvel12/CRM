@@ -115,22 +115,27 @@ router.get('/property-list', (req, res) => {
 
 //Route to CREATE a property
 router.get('/new-property', (req, res) => {
-    res.render(path.join(__dirname, 'views', 'new-property.ejs'))
-})
+    conexion.query('SELECT name FROM agent', (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render(path.join(__dirname, 'views', 'new-property.ejs'), { results: results });
+        }
+    })
+});
 
 //Route to EDIT a property
 router.get('/property-edit/:id', (req, res) => {
     const id = req.params.id;
-    conexion.query('SELECT * FROM property WHERE property_id=?', [id],  (error, results) => {
+    conexion.query('SELECT * FROM property WHERE property_id=?', [id], (error, results) => {
         if (error) {
             throw error;
         } else {
-            conexion.query('SELECT name FROM agent WHERE agent_id=?', [results[0].agent_id], (error, name) => {
-                if (error){
+            conexion.query('SELECT * FROM agent', (error, agents) => {
+                if (error) {
                     throw error;
                 } else {
-                    res.render(path.join(__dirname, 'views', 'property-edit.ejs'), { property: results[0], agent: name[0] });
-
+                    res.render(path.join(__dirname, 'views', 'property-edit.ejs'), { property: results[0], agents: agents });
                 }
             })
         }
@@ -139,7 +144,14 @@ router.get('/property-edit/:id', (req, res) => {
 
 //Route to DELETE a property
 router.get('/property-delete/:id', (req, res) => {
-
+    const id = req.params.id;
+    conexion.query('DELETE FROM property WHERE property_id = ?', [id], (error, results) =>{
+        if (error){
+            throw error;
+        } else {
+            res.redirect('/property-list')
+        }
+    })
 })
 
 //Route to the property Assignmet page
