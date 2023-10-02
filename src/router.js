@@ -3,28 +3,37 @@ const router = express.Router();
 const path = require('path');
 const conexion = require('../database/db');
 
+//Methods agent
+
 //Invoke methods for the agent CRUD (Create)
 const crudagent = require('./controllers/CRUD_agent');
 router.post('/save', crudagent.save);
 
-//Invoke methods for the property CRUD (Create)
-const crud_property = require('./controllers/crud-property');
-router.post('/saveproperty', crud_property.save)
 
 //Invoke methods for the agent CRUD (Edit)
 router.post('/update', crudagent.update);
 
 //Invoke methods for the agent CRUD (Delete)
-router.get('/delete/:name',(req, res)=>{
-    const name = req.params.name; 
-    conexion.query('DELETE FROM agent WHERE name = ?', [name], (error, results) =>{
+router.get('/delete/:name', (req, res) => {
+    const name = req.params.name;
+    conexion.query('DELETE FROM agent WHERE name = ?', [name], (error, results) => {
         if (error) {
             throw error;
         } else {
             res.redirect("/agent")
-        } 
+        }
     })
 })
+
+//Methods for the property
+
+//Invoke methods for the property CRUD (Create)
+const crud_property = require('./controllers/crud-property');
+const pool = require('../database/db');
+router.post('/saveproperty', crud_property.save)
+
+//Invoke methods for the property CRUD (Update)
+router.post('/updateproperty', crud_property.update)
 
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 router.use(express.static(path.join(__dirname, 'public')));
@@ -61,11 +70,11 @@ router.get('/newagent', (req, res) => {
 //Route to the edit agent page
 router.get('/editagent/:name', (req, res) => {
     const name = req.params.name;
-    conexion.query('SELECT * FROM agent WHERE name=?', [name], (error, results) => {
+    conexion.query('SELECT * FROM agent WHERE name = ?', [name], (error, results) => {
         if (error) {
             throw error;
         } else {
-            res.render(path.join(__dirname, 'views', 'agent_edit.ejs'), { agent: results [0]});
+            res.render(path.join(__dirname, 'views', 'agent_edit.ejs'), { agent: results[0] });
         }
     })
 });
@@ -78,7 +87,7 @@ router.get('/agents-properties/:name', (req, res) => {
         if (error) {
             throw error;
         } else {
-            res.render(path.join(__dirname, 'views', 'agents-properties.ejs'), { agent: results [0]});
+            res.render(path.join(__dirname, 'views', 'agents-properties.ejs'), { agent: results[0] });
         }
     })
 });
@@ -104,9 +113,33 @@ router.get('/property-list', (req, res) => {
     })
 });
 
-//Route to the create property page
+//Route to CREATE a property
 router.get('/new-property', (req, res) => {
     res.render(path.join(__dirname, 'views', 'new-property.ejs'))
+})
+
+//Route to EDIT a property
+router.get('/property-edit/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('SELECT * FROM property WHERE property_id=?', [id],  (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            conexion.query('SELECT name FROM agent WHERE agent_id=?', [results[0].agent_id], (error, name) => {
+                if (error){
+                    throw error;
+                } else {
+                    res.render(path.join(__dirname, 'views', 'property-edit.ejs'), { property: results[0], agent: name[0] });
+
+                }
+            })
+        }
+    })
+})
+
+//Route to DELETE a property
+router.get('/property-delete/:id', (req, res) => {
+
 })
 
 //Route to the property Assignmet page
