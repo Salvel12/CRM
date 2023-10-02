@@ -41,6 +41,14 @@
             </select>
             <input type="text" name="address" id="address" required placeholder="Address" value="<%= property.address%>">
             <input type="number" name="price" id="price" min="0" required placeholder="Price" value="<%= property.price%>">
+            <input type="number" name="rooms" id="rooms" min="0" required placeholder="Rooms" value="<%= property.rooms%>">
+            <input type="number" name="bathrooms" id="bathrooms" min="0" required placeholder="Bathrooms" value="<%= property.bathrooms%>">
+            <select name="green_zone" id="green_zone" required>
+                <option value="" disabled selected>Select if the property have a green zone</option>
+                <option <%= property.green_zone === 'Yes' ? "selected" : '' %> value="Yes">Yes</option>
+                <option <%= property.green_zone === 'No' ? "selected" : '' %> value="No">No</option>
+            </select>
+            <input type="number" name="meters" id="meters" min="0" required placeholder="Meters" value="<%= property.meters%>">
             <select name="agent_name" id="agent_name" required>
                 <% agents.forEach((agent)=> {%>
                     <option <%= property.agent_id === agent.agent_id ? "selected" : '' %>><%= agent.name%></option>

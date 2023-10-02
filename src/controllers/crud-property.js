@@ -6,22 +6,7 @@ let agent_id;
 exports.save = (req, res) => {
     console.log(req.body)
     try {
-        const { property_type, property_bussines_type, address, price, agent_name } = req.body
-
-
-        // const getCustomerID = new Promise((resolve, reject) => {
-        //     const customer = `SELECT \`customer\`.\`Csutomer_ID\` FROM \`customer\` WHERE \`customer\`.\`name\` = '${Customer_name}'`;
-
-        //     pool.query(customer, (error, results) => {
-        //         if (error) {
-        //             reject(error);
-        //         } else {
-        //             client_id = results[0].Csutomer_ID;
-        //             resolve();
-        //         }
-        //     });
-
-        // })
+        const { property_type, property_bussines_type, address, price, rooms, bathrooms, green_zone, meters, agent_name } = req.body
 
         const getAgentID = new Promise((resolve, reject) => {
             const agent = `SELECT \`agent\`.\`agent_id\` FROM \`agent\` WHERE \`agent\`.\`name\` = '${agent_name}'`;
@@ -44,7 +29,10 @@ exports.save = (req, res) => {
         })
 
         getAgentID.then(() => {
-            pool.query('INSERT INTO property SET ?', { property_type: property_type, property_bussines_type: property_bussines_type, address: address, price: price, agent_id: agent_id }, (error, results) => {
+            pool.query('INSERT INTO property SET ?', {
+                property_type: property_type, property_bussines_type: property_bussines_type, address: address,
+                price: price, rooms: rooms, bathrooms: bathrooms, green_zone: green_zone, meters: meters, agent_id: agent_id
+            }, (error, results) => {
                 if (error) {
                     console.error("Error on sql sentence of insert into property: " + error);
                 }
@@ -65,7 +53,7 @@ exports.save = (req, res) => {
 
 exports.update = (req, res) => {
     console.log(req.body)
-    const { property_id, property_type, property_bussines_type, address, price, agent_name, rol, cost, date } = req.body
+    const { property_id, property_type, property_bussines_type, address, price, rooms, bathrooms, green_zone, meters, agent_name } = req.body
 
     const getAgentID = new Promise((resolve, reject) => {
         const agent = `SELECT \`agent\`.\`agent_id\` FROM \`agent\` WHERE \`agent\`.\`name\` = '${agent_name}'`;
@@ -88,7 +76,7 @@ exports.update = (req, res) => {
     })
 
     getAgentID.then(() => {
-        pool.query('UPDATE property SET ? WHERE property_id=?', [{ property_type, property_bussines_type, address, price, agent_id}, property_id], (error, results) => {
+        pool.query('UPDATE property SET ? WHERE property_id=?', [{ property_type, property_bussines_type, address, price, rooms, bathrooms, green_zone, meters, agent_id }, property_id], (error, results) => {
             if (error) {
                 console.error("Error on sql sentence of update property: " + error);
             } else {

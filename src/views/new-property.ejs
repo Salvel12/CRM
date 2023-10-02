@@ -39,6 +39,14 @@
             </select>
             <input type="text" name="address" id="address" required placeholder="Address">
             <input type="number" name="price" id="price" min="0" required placeholder="Price">
+            <input type="number" name="rooms" id="rooms" min="0" required placeholder="Rooms">
+            <input type="number" name="bathrooms" id="bathrooms" min="0" required placeholder="Bathrooms">
+            <select name="green_zone" id="green_zone" required>
+                <option value="" disabled selected>Select if the property have a green zone</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <input type="number" name="meters" id="meters" min="0" required placeholder="Meters">
             <select name="agent_name" id="agent_name" required>
                 <option value="" disabled selected>Select the agent</option>
                 <% results.forEach((agent)=> {%>
