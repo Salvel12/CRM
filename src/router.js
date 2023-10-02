@@ -14,9 +14,9 @@ router.post('/save', crudagent.save);
 router.post('/update', crudagent.update);
 
 //Invoke methods for the agent CRUD (Delete)
-router.get('/delete/:name', (req, res) => {
-    const name = req.params.name;
-    conexion.query('DELETE FROM agent WHERE name = ?', [name], (error, results) => {
+router.get('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM agent WHERE agent_id = ?', [id], (error, results) => {
         if (error) {
             throw error;
         } else {
@@ -68,9 +68,10 @@ router.get('/newagent', (req, res) => {
 
 
 //Route to the edit agent page
-router.get('/editagent/:name', (req, res) => {
-    const name = req.params.name;
-    conexion.query('SELECT * FROM agent WHERE name = ?', [name], (error, results) => {
+router.get('/editagent/:id', (req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    conexion.query('SELECT * FROM agent WHERE agent_id = ?', [id], (error, results) => {
         if (error) {
             throw error;
         } else {
@@ -81,9 +82,9 @@ router.get('/editagent/:name', (req, res) => {
 
 
 //Route to the agent properties page
-router.get('/agents-properties/:name', (req, res) => {
-    const name = req.params.name;
-    conexion.query('SELECT * FROM agent WHERE name=?', [name], (error, results) => {
+router.get('/agents-properties/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('SELECT * FROM agent WHERE agent_id=?', [id], (error, results) => {
         if (error) {
             throw error;
         } else {
