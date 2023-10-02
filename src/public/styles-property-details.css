@@ -1,29 +1,11 @@
-.dList {
-    text-align: left;
-    list-style-type: none;
-}
-
-.dList li{
+.container {
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    height: 50vh;
 }
 
-.dList li p {
+.items{
     font-size: 20px;
-}
-
-.dList li a {
-    font-size: 20px;
-    margin: 20px 0px;
-}
-
-.btnSee {
-    background-color: #a20f31;
-    color: #fff;
-    border-radius: 40px;
-    margin-left: 20px;
-    width: 80px;
-    height: 30px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
 }

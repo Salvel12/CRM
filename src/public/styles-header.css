@@ -65,3 +65,16 @@ a {
   text-decoration: none; /* Quita el subrayado */
   color: inherit; /* Hereda el color del texto de su contenedor */
 }
+
+.container{
+  display: flex;
+  text-align: center;
+}
+
+.left {
+  flex: 0.6;
+}
+
+.right {
+  flex: 0.4;
+}
