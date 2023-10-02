@@ -2,8 +2,9 @@ body{
   margin: 0;
   padding: 0;
   background-color: #a29a91;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
+  font-family: Arial, sans-serif;
 }
 .nav-list {
   list-style: none;
@@ -58,19 +59,6 @@ body{
 .nav-list .profile {
   background-color: #8b0000;/* Color de fondo para "Profile" */
   color: white;
-}
-
-.container{
-  display: flex;
-  text-align: center;
-}
-
-.left {
-  flex: 0.6;
-}
-
-.right {
-  flex: 0.4;
 }
 
 a {
