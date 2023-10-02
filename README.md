@@ -62,10 +62,10 @@ Antes de ejecutar el proyecto se deben seguir los siguientes pasos:
 ## CONSTRUCCIÓN
 
 ## RECURSOS ÚTILES
-[Como hacer un CRUD con Nodejs parte 1](https://www.youtube.com/watch?v=VuMSq68h-H4)
-[Como hacer un CURD con Nodejs parte 2](https://www.youtube.com/watch?v=fLIwK292RPY)
-[Como hacer un CURD con Nodejs parte 3](https://www.youtube.com/watch?v=4ugXBRbo1J0&t=781s)
-[GitHub del proyecto del video anterior](https://github.com/infodp/crud_nodejs)
+- [Como hacer un CRUD con Nodejs parte 1](https://www.youtube.com/watch?v=VuMSq68h-H4)
+- [Como hacer un CURD con Nodejs parte 2](https://www.youtube.com/watch?v=fLIwK292RPY)
+- [Como hacer un CURD con Nodejs parte 3](https://www.youtube.com/watch?v=4ugXBRbo1J0&t=781s)
+- [GitHub del proyecto del video anterior](https://github.com/infodp/crud_nodejs)
 
 ## ESTADO DEL PROYECTO
 En desarrollo
