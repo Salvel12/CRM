@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Property</title>
+    <link rel="stylesheet" href="/styles-header.css">
+    <link rel="stylesheet" href="/styles-new-property.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="/home" class="home">Home</a></li>
+                <li><a href="/agent" class="agents">Agents</a></li>
+                <li><a href="/property-list" class="properties">List of Properties</a></li>
+                <li><a href="/customers" class="customers">Customer List</a></li>
+                <li><a href="#" class="profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="form-container">
+        <form action="/savehistory" method="POST">
+            <!-- Data of history table -->
+            <label for="">History of apartment</label>
+            <select name="customer_name" id="customer_name" required>
+                <option value="" disabled selected>Select the customer</option>
+                <% results.forEach((customer)=> {%>
+                    <option>
+                        <%= customer.name%>
+                    </option>
+                    <% }); %>
+            </select>
+            <select name="rol" id="rol">
+                <option value="" disabled selected>Ownership Status</option>
+                <option value="Owner">Owner</option>
+                <option value="Tenant">Tenant</option>
+            </select>
+            <input type="number" name="cost" id="cost" min="0" required placeholder="Sell Price">
+            <input type="date" name="date" id="date" required placeholder="Date of the Last Lease or Sale">
+            <button class="button" type="submit">Guardar</button>
+            <a href="/property-list" class="button-link">Cancel</a>
+        </form>
+    </div>
+</body>
+
+</html>

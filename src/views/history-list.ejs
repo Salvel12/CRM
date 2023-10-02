@@ -32,35 +32,29 @@
                     <th scope="col">Address</th>
                     <th scope="col">Property Type</th>
                     <th scope="col">State</th>
-                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <% results.forEach((property)=> {%>
+                <% results.forEach((item)=> {%>
                     <tr class="items">
                         <th scope="row">
-                            <%= property.property_id %>
+                            <%= item.history_id %>
                         </th>
                         <td>
-                            <%= property.address %>
+                            
+                            <%= item.rol %>
                         </td>
                         <td>
-                            <%= property.property_type %>
+                            <%= item.cost %>
                         </td>
                         <td>
-                            <%= property.rooms %>
-                        </td>
-                        <td>
-                            <%= property.bathrooms %>
-                        </td>
-                        <td>
-                            <%= property.property_bussines_type %>
+                            <%= item.property_bussines_type %>
                         </td>
                         <td class="buttons">
                             <img src="" alt="">
-                            <a href="/property-details/<%= property.property_id %>" class="ver">🔍</a>
+                            <a href="/" class="ver">🔍</a>
                             <a href="/property-edit/<%= property.property_id %>" class="btn-red">Edit</a>
-                            <a href="/history-list/<%= property.property_id %>" class="btn-red">History</a>
+                            <a href="/history-list" class="btn-red">History</a>
                             <a href="/property-delete/<%= property.property_id%>">
                                 <button class="btn-delete">Delete</button>
                             </a>

@@ -33,7 +33,27 @@ const pool = require('../database/db');
 router.post('/saveproperty', crud_property.save)
 
 //Invoke methods for the property CRUD (Update)
-router.post('/updateproperty', crud_property.update)
+router.post('/updateproperty', crud_property.update);
+
+//Route to DELETE a property
+router.get('/property-delete/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM property WHERE property_id = ?', [id], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.redirect('/property-list');
+        }
+    });
+});
+
+//Methods for the history
+
+//Invoke methods for the history CRUD (Create)
+const crud_history = require('./controllers/crud-history');
+router.post('/savehistory', crud_history.save);
+
+
 
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
 router.use(express.static(path.join(__dirname, 'public')));
@@ -158,17 +178,28 @@ router.get('/property-edit/:id', (req, res) => {
     })
 })
 
-//Route to DELETE a property
-router.get('/property-delete/:id', (req, res) => {
+//Route to a history item of a property with sql 
+router.get('/history-list/:id', (req, res) => {
     const id = req.params.id;
-    conexion.query('DELETE FROM property WHERE property_id = ?', [id], (error, results) =>{
-        if (error){
+    conexion.query('SELECT * FROM history WHERE property_id = ?', [id], (error, results) => {
+        if (error) {
             throw error;
         } else {
-            res.redirect('/property-list')
+            res.render(path.join(__dirname, 'views', 'history-list.ejs'), { results: results });
         }
-    })
-})
+    });
+});
+
+//Route to CREATE a history item
+router.get('/new-history', (req, res) => {
+    conexion.query('SELECT name FROM customer', (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render(path.join(__dirname, 'views', 'new-history.ejs'), { results: results });
+        }
+    });
+});
 
 //Route to the property Assignmet page
 router.get('/property-assignment', (req, res) => {
