@@ -15,15 +15,10 @@ exports.save = (req, res) => {
             pool.query(agent, (error, results) => {
                 if (error) {
                     console.error("Error on sql sentence of select agent: " + error);
+                    reject(error);
                 } else {
-                    try {
-                        agent_id = results[0].agent_id;
-                        resolve();
-                    } catch (error) {
-                        console.error("Error agent doesn\'t found: " + error);
-                        reject(error);
-                        res.status(404).send('The spelled agent does\'t found in the database');
-                    }
+                    agent_id = results[0].agent_id;
+                    resolve();
                 }
             });
         })

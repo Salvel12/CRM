@@ -20,17 +20,16 @@ router.get('/delete/:id', (req, res) => {
         if (error) {
             throw error;
         } else {
-            res.redirect("/agent")
+            res.redirect("/agent");
         }
-    })
+    });
 })
 
 //Methods for the property
 
 //Invoke methods for the property CRUD (Create)
 const crud_property = require('./controllers/crud-property');
-const pool = require('../database/db');
-router.post('/saveproperty', crud_property.save)
+router.post('/saveproperty', crud_property.save);
 
 //Invoke methods for the property CRUD (Update)
 router.post('/updateproperty', crud_property.update);
@@ -63,6 +62,8 @@ router.get('/', (req, res) => {
     res.render(path.join(__dirname, 'views', 'login'));
 });
 
+
+
 // Route to home page
 router.get('/home', (req, res) => {
     res.render(path.join(__dirname, 'views', 'home'));
@@ -76,7 +77,7 @@ router.get('/agent', (req, res) => {
         } else {
             res.render(path.join(__dirname, 'views', 'agent_list.ejs'), { results: results });
         }
-    })
+    });
 
 });
 
@@ -97,7 +98,7 @@ router.get('/editagent/:id', (req, res) => {
         } else {
             res.render(path.join(__dirname, 'views', 'agent_edit.ejs'), { agent: results[0] });
         }
-    })
+    });
 });
 
 
@@ -112,7 +113,7 @@ router.get('/agents-properties/:id', (req, res) => {
                 res.render(path.join(__dirname, 'views', 'agents-properties.ejs'), { agent: results[0], properties: properties });
             });
         }
-    })
+    });
 });
 
 //Route to the view property page
@@ -133,7 +134,7 @@ router.get('/property-details/:id', (req, res) => {
                 } else {
                     res.render(path.join(__dirname, 'views', 'property-details.ejs'), { results: results[0], agent: agent[0] });
                 }
-            })
+            });
         }
     });
 });
@@ -146,7 +147,7 @@ router.get('/property-list', (req, res) => {
         } else {
             res.render(path.join(__dirname, 'views', 'property-list.ejs'), { results: results });
         }
-    })
+    });
 });
 
 //Route to CREATE a property
@@ -157,7 +158,7 @@ router.get('/new-property', (req, res) => {
         } else {
             res.render(path.join(__dirname, 'views', 'new-property.ejs'), { results: results });
         }
-    })
+    });
 });
 
 //Route to EDIT a property
@@ -173,10 +174,10 @@ router.get('/property-edit/:id', (req, res) => {
                 } else {
                     res.render(path.join(__dirname, 'views', 'property-edit.ejs'), { property: results[0], agents: agents });
                 }
-            })
+            });
         }
-    })
-})
+    });
+});
 
 //Route to a history item of a property with sql 
 router.get('/history-list/:id', (req, res) => {

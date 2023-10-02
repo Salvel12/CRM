@@ -21,12 +21,14 @@
             </ul>
         </nav>
     </header>
-    
+
     <% if (agent){ %>
         <input id="id" name="id" value="<%= agent.agent_id %>" hidden>
         <div class="container">
             <div class="left">
-                <h4><%= agent.name %></h4>
+                <h4>
+                    <%= agent.name %>
+                </h4>
             </div>
             <div class="right">
                 <h4>PROPERTIES IN CHARGE</h4>
@@ -44,7 +46,7 @@
                         <label class="checkbox-label" for="c2">ID: <%= agent.agent_id %></label>
                     </li>
                     <li>
-                        <input class="checkbox-roja" type="checkbox" value="" id="c3" >
+                        <input class="checkbox-roja" type="checkbox" value="" id="c3">
                         <label class="checkbox-label" for="c3">Was hired at: <%= agent.time.toLocaleDateString() %> 
                         </label>
                     </li>
@@ -68,7 +70,7 @@
                 </ul>
             </div>
         </div>
-    <% } %>
+        <% } %>
             <div class="container">
                 <div class="left">
                     <button class="botonAtras">&lt;</button>

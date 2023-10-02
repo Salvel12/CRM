@@ -50,17 +50,11 @@
             <select name="agent_name" id="agent_name" required>
                 <option value="" disabled selected>Select the agent</option>
                 <% results.forEach((agent)=> {%>
-                    <option><%= agent.name%></option>
+                    <option>
+                        <%= agent.name%>
+                    </option>
                     <% }); %>
             </select>
-
-            <!-- <label for="">History of apartment (Optional)</label>
-            <select name="rol" id="rol">
-                <option value="Owner">Owner</option>
-                <option value="Tenant">Tenant</option>
-            </select>
-            <input type="number" name="cost" id="cost" min="0"  required placeholder="Sell Price">
-            <input type="date" name="date" id="date" required placeholder="Date of the Last Lease or Sale">-->
             <button class="button" type="submit">Guardar</button>
             <a href="/property-list" class="button-link">Cancel</a>
         </form>
