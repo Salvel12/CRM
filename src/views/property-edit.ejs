@@ -22,35 +22,30 @@
         </nav>
     </header>
     <div class="form-container">
-        <form action="/saveproperty" method="POST">
+    <% if (property && agent) { %>
+        <form action="/updateproperty" method="POST">
             <!-- Data of property table -->
             <label for="">Apartment information</label>
+            <input type="number" id="property_id" name="property_id" value="<%= property.property_id%>" hidden>
             <select name="property_type" id="property_type" required>
                 <option value="" disabled selected>Select the type of property</option>
-                <option value="Apartment">Apartment</option>
-                <option value="House">House</option>
+                <option <%= property.property_type === 'Apartment' ? "selected" : '' %> value="Apartment">Apartment</option>
+                <option <%= property.property_type === 'House' ? "selected" : '' %> value="House">House</option>
             </select>
             <select name="property_bussines_type" id="property_bussines_type" required>
                 <option value="" disabled selected>Select the state of the property</option>
-                <option value="Sale">Sale</option>
-                <option value="Sold">Sold</option>
-                <option value="Lease">Lease</option>
-                <option value="Leased">Leased</option>
+                <option <%= property.property_bussines_type === 'Sale' ? "selected" : '' %> value="Sale">Sale</option>
+                <option <%= property.property_bussines_type === 'Sold' ? "selected" : '' %> value="Sold">Sold</option>
+                <option <%= property.property_bussines_type === 'Lease' ? "selected" : '' %> value="Lease">Lease</option>
+                <option <%= property.property_bussines_type === 'Leased' ? "selected" : '' %> value="Leased">Leased</option>
             </select>
-            <input type="text" name="address" id="address" required placeholder="Address">
-            <input type="number" name="price" id="price" min="0" required placeholder="Price">
-            <input type="text" name="agent_name" id="agent_name" required placeholder="Agent Name">
-            
-            <!-- <label for="">History of apartment (Optional)</label>
-            <select name="rol" id="rol">
-                <option value="Owner">Owner</option>
-                <option value="Tenant">Tenant</option>
-            </select>
-            <input type="number" name="cost" id="cost" min="0"  required placeholder="Sell Price">
-            <input type="date" name="date" id="date" required placeholder="Date of the Last Lease or Sale">-->
+            <input type="text" name="address" id="address" required placeholder="Address" value="<%= property.address%>">
+            <input type="number" name="price" id="price" min="0" required placeholder="Price" value="<%= property.price%>">
+            <input type="text" name="agent_name" id="agent_name" required placeholder="Agent Name" value="<%= agent.name%>">
             <button class="button" type="submit">Guardar</button> 
             <a href="/property-list" class="button-link">Cancel</a>
         </form>
+        <% } %>
     </div>
 </body>
 
