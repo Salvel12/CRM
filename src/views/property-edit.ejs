@@ -22,7 +22,7 @@
         </nav>
     </header>
     <div class="form-container">
-    <% if (property && agent) { %>
+    <% if (property && agents) { %>
         <form action="/updateproperty" method="POST">
             <!-- Data of property table -->
             <label for="">Apartment information</label>
@@ -41,7 +41,11 @@
             </select>
             <input type="text" name="address" id="address" required placeholder="Address" value="<%= property.address%>">
             <input type="number" name="price" id="price" min="0" required placeholder="Price" value="<%= property.price%>">
-            <input type="text" name="agent_name" id="agent_name" required placeholder="Agent Name" value="<%= agent.name%>">
+            <select name="agent_name" id="agent_name" required>
+                <% agents.forEach((agent)=> {%>
+                    <option <%= property.agent_id === agent.agent_id ? "selected" : '' %>><%= agent.name%></option>
+                    <% }); %>
+            </select>
             <button class="button" type="submit">Guardar</button> 
             <a href="/property-list" class="button-link">Cancel</a>
         </form>
