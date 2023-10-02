@@ -56,23 +56,15 @@
             </div>
             <div class="right">
                 <ul class="lista">
-                    <li>
-                        <input class="checkbox-circle" type="checkbox" value="" id="r1">
-                        <label class="checkbox-label" for="r1">764590</label>
-                        <a href="/view-property">
-                            <button class="boton-rojo">See</button>
-                        </a>
-                    </li>
-                    <li>
-                        <input class="checkbox-circle" type="checkbox" value="" id="r2">
-                        <label class="checkbox-label" for="r2">103842</label>
-                        <button class="boton-rojo">See</button>
-                    </li>
-                    <li>
-                        <input class="checkbox-circle" type="checkbox" value="" id="r3">
-                        <label class="checkbox-label" for="r3">3456988</label>
-                        <button class="boton-rojo">See</button>
-                    </li>
+                    <% properties.forEach((item)=> {%>
+                        <li>
+                            <input class="checkbox-circle" type="checkbox" value="" id="r1">
+                            <label class="checkbox-label" for="r1"><%= item.address%></label>
+                            <a href="../property-details/<%= item.property_id%>">
+                                <button class="boton-rojo">See</button>
+                            </a>
+                        </li>
+                        <% }) %>
                 </ul>
             </div>
         </div>

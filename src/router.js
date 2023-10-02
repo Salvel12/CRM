@@ -88,7 +88,9 @@ router.get('/agents-properties/:id', (req, res) => {
         if (error) {
             throw error;
         } else {
-            res.render(path.join(__dirname, 'views', 'agents-properties.ejs'), { agent: results[0] });
+            conexion.query('SELECT * FROM property WHERE agent_id = ?', [results[0].agent_id], (error, properties) => {
+                res.render(path.join(__dirname, 'views', 'agents-properties.ejs'), { agent: results[0], properties: properties });
+            });
         }
     })
 });
