@@ -98,8 +98,21 @@ router.get('/view-property', (req, res) => {
 });
 
 //Route to the porperty details page
-router.get('/property-details', (req, res) => {
-    res.render(path.join(__dirname, 'views', 'property-details.ejs'));
+router.get('/property-details/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('SELECT * FROM property WHERE property_id=?', [id], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            conexion.query('SELECT name FROM agent WHERE agent_id = ?', [results[0].agent_id], (error, agent) => {
+                if (error) {
+                    throw error;
+                } else {
+                    res.render(path.join(__dirname, 'views', 'property-details.ejs'), { results: results[0], agent: agent[0] });
+                }
+            })
+        }
+    });
 });
 
 //Route to the property list page with sql search sentence

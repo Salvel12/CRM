@@ -23,49 +23,60 @@
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <div class="left">
-            <h4>DETAILS</h4>
-            <div class="container">
-                <ul class="dList">
-                    <li>
-                        <a>AGE OF THE PROPERTY IN THE COMPANY: </a>
-                        <a>2 YEARS</a>
-                    </li>
-                    <li>
-                        <a>FORMER TENANTS</a>
-                        <button class="btnSee">SEE</button>
-                    </li>
-                    <li>
-                        <p>LOCATED NEAR THE TOWN PARK</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="right">
-            <h4>INFORMATION</h4>
-            <div class="container">
-                <div class="left">
-                    <ul class="dList">
-                        <li><p>ROOMS</p></li>
-                        <li><p>BATHROOMS</p></li>
-                        <li><p>SWIMMING POOL</p></li>
-                        <li><p>GREEN ZONE</p></li>
-                        <li><p>METERS</p></li>
-                    </ul>
-                </div>
-                <div class="right">
-                    <ul class="dList">
-                        <li><p>5</p></li>
-                        <li><p>4</p></li>
-                        <li><p>2</p></li>
-                        <li><p>YES</p></li>
-                        <li><p>160MTS</p></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
+    <div class="container-flex">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Property Type</th>
+                    <th scope="col">Rooms</th>
+                    <th scope="col">Bathrooms</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Green Zone</th>
+                    <th scope="col">Meters</th>
+                    <th scope="col">Agent in Carge</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (results && agent) {%>
+                <tr class="items">
+                    <th scope="row">
+                        <%= results.property_id %>
+                    </th>
+                    <td>
+                        <%= results.address %>
+                    </td>
+                    <td>
+                        <%= results.property_type %>
+                    </td>
+                    <td>
+                        <%= results.rooms %>
+                    </td>
+                    <td>
+                        <%= results.bathrooms %>
+                    </td>
+                    <td>
+                        <%= results.property_bussines_type %>
+                    </td>
+                    <td>
+                        <%= results.price %>
+                    </td>
+                    <td>
+                        <%= results.green_zone %>
+                    </td>
+                    <td>
+                        <%= results.meters %>
+                    </td>
+                    <td>
+                        <%= agent.name %>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
