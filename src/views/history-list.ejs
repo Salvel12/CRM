@@ -29,9 +29,12 @@
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Property Type</th>
-                    <th scope="col">State</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Property Address</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,14 +51,17 @@
                             <%= item.cost %>
                         </td>
                         <td>
-                            <%= item.property_bussines_type %>
+                            <%= item.date.toLocaleDateString() %>
+                        </td>
+                        <td>
+                            <%= item.customer_id %>
+                        </td>
+                        <td>
+                            <%= item.property_id %>
                         </td>
                         <td class="buttons">
-                            <img src="" alt="">
-                            <a href="/" class="ver">🔍</a>
-                            <a href="/property-edit/<%= property.property_id %>" class="btn-red">Edit</a>
-                            <a href="/history-list" class="btn-red">History</a>
-                            <a href="/property-delete/<%= property.property_id%>">
+                            <a href="/history-edit/<%= item.history_id %>" class="btn-red">Edit</a>
+                            <a href="/history-delete/<%= item.history_id%>/<%= item.property_id %>">
                                 <button class="btn-delete">Delete</button>
                             </a>
                         </td>
@@ -64,8 +70,8 @@
             </tbody>
         </table>
         <div class="add-position" action="/new-property">
-            <a href="/new-property" class="text">
-                <button class="btn btn-danger add-property">Add a New Property</button>
+            <a href="/new-history/<%= property_id%>" class="text">
+                <button class="btn btn-danger add-property">Add a New History Item</button>
             </a>
         </div>
     </div>

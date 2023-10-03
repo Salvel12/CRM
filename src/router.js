@@ -52,6 +52,24 @@ router.get('/property-delete/:id', (req, res) => {
 const crud_history = require('./controllers/crud-history');
 router.post('/savehistory', crud_history.save);
 
+//Invoke methods for the history CRUD (Update)
+router.post('/updatehistory', crud_history.update);
+
+router.get('/history-delete/:id/:property', (req, res) => {
+    const id = req.params.id;
+    const property = req.params.property
+    const url = `/history-list/${property}`;
+    conexion.query('DELETE FROM history WHERE history_id = ?', [id], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+
+            res.redirect(url);
+        }
+    });
+});
+
+
 
 
 // Configuración de ruta estática para los archivos CSS, JS y otros recursos en la carpeta "public"
@@ -186,18 +204,37 @@ router.get('/history-list/:id', (req, res) => {
         if (error) {
             throw error;
         } else {
-            res.render(path.join(__dirname, 'views', 'history-list.ejs'), { results: results });
+            res.render(path.join(__dirname, 'views', 'history-list.ejs'), { results: results, property_id: id});
         }
     });
 });
 
 //Route to CREATE a history item
-router.get('/new-history', (req, res) => {
+router.get('/new-history/:id', (req, res) => {
+    const id = req.params.id;
     conexion.query('SELECT name FROM customer', (error, results) => {
         if (error) {
             throw error;
         } else {
-            res.render(path.join(__dirname, 'views', 'new-history.ejs'), { results: results });
+            res.render(path.join(__dirname, 'views', 'new-history.ejs'), { results: results, property_id: id });
+        }
+    });
+});
+
+//Route to UPDATE a history item
+router.get('/history-edit/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('SELECT * FROM history WHERE history_id = ?', [id] , (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            conexion.query('SELECT * FROM customer', (error, customers) =>{
+                if (error){
+                    throw error;
+                } else {
+                    res.render(path.join(__dirname, 'views', 'history-edit.ejs'), { results: results[0], customers: customers});
+                }
+            });
         }
     });
 });

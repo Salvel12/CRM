@@ -22,28 +22,31 @@
         </nav>
     </header>
     <div class="form-container">
-        <form action="/savehistory" method="POST">
+    <% if (results) { %>
+        <form action="/updatehistory" method="POST">
             <!-- Data of history table -->
             <label for="">History of apartment</label>
-            <input name="property_id" id="property_id" value="<%= property_id %>" required hidden>
+            <input name="history_id" id="history_id" value="<%= results.history_id %>" required hidden>
+            <input name="property_id" id="property_id" value="<%= results.property_id %>" required hidden>
             <select name="customer_name" id="customer_name" required>
                 <option value="" disabled selected>Select the customer</option>
-                <% results.forEach((customer)=> {%>
-                    <option>
+                <% customers.forEach((customer)=> {%>
+                    <option <%= results.customer_id === customer.customer_id ? "selected" : '' %>>
                         <%= customer.name%>
                     </option>
                     <% }); %>
             </select>
             <select name="rol" id="rol">
                 <option value="" disabled selected>Ownership Status</option>
-                <option value="Owner">Owner</option>
-                <option value="Tenant">Tenant</option>
+                <option <%= results.rol === 'Owner' ? "selected" : '' %> value="Owner">Owner</option>
+                <option <%= results.rol === 'Tenant' ? "selected" : '' %> value="Tenant">Tenant</option>
             </select>
-            <input type="number" name="cost" id="cost" min="0" required placeholder="Sell Price">
-            <input type="date" name="date" id="date" required placeholder="Date of the Last Lease or Sale">
-            <button class="button" type="submit">Guardar</button>
-            <a href="/property-list" class="button-link">Cancel</a>
+            <input type="number" name="cost" id="cost" min="0" required placeholder="Sell Price" value="<%= results.cost%>">
+            <input type="date" name="date" id="date" value="<%= results.date.toLocaleDateString().replace(/\//g, '-').split('-').map(e => e.length === 1 ? `0${e}` : e).reverse().join('-')%>">
+            <button class="button" type="submit">Guardar</button> 
+            <a href="/history-list/<%= results.property_id%>" class="button-link">Cancel</a>
         </form>
+        <% } %>
     </div>
 </body>
 
