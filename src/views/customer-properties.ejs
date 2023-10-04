@@ -21,9 +21,12 @@
             </ul>
         </nav>
     </header>
+
+    <% if (customer){ %>
+        <input id="id" name="id" value="<%= customer.customer_id %>" hidden>
     <div class="container">
         <div class="left">
-            <h4>SANTIAGO VELEZ  </h4>
+            <h4><%=customer.name %></h4>
         </div>
         
     </div>
@@ -31,30 +34,33 @@
         <div class="left">
             <ul class="lista">
                 <li>
-                    <input class="checkbox-roja" type="checkbox" value="" id="c1">
-                    <label class="checkbox-label" for="c1">CALLE 10 #50-40</label>
+                    <input class="checkbox-roja" type="checkbox" value=""    id="c1">
+                    <label class="checkbox-label" for="c1">Sales: <%=customer.sales %></label>
                 </li>
                 <li>
                     <input class="checkbox-roja" type="checkbox" value="" id="c2">
-                    <label class="checkbox-label" for="c2">santiagovelez@gmail.com</label>
+                    <label class="checkbox-label" for="c2">Email: <%=customer.email %></label>
                 </li>
                 <li>
                     <input class="checkbox-roja" type="checkbox" value="" id="c3">
-                    <label class="checkbox-label" for="c3">1007649037</label>
+                    <label class="checkbox-label" for="c3">ID: <%=customer.customer_id %></label>
                 </li>
                 <li>
                     <input class="checkbox-roja" type="checkbox" value="" id="c4">
-                    <label class="checkbox-label" for="c4">CONTACTO: +57 300 468 2615</label>
+                    <label class="checkbox-label" for="c4">Contact: <%=customer.cell_number %></label>
                 </li>
                 <li>
                     <input class="checkbox-roja" type="checkbox" value="" id="c5">
-                    <label class="checkbox-label" for="c4">06/07/1998</label>
+                    <label class="checkbox-label" for="c4">Agent: <%=customer.agent_id %></label>
                 </li>
             </ul>
+
         </div>
+        <% } %>
         <div class="right">
            <img src="/profile.JPG">
         </div>
+        
     </div>
     <div class="container">
         <div class="left">
