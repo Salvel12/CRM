@@ -73,13 +73,11 @@ En desarrollo
 ## ACREDITACIÓN DE COLABORADORES
 
 ## AUTORES
-- Alejandro Alzate Usuga
 - Samuel Alvarez Velasquez
 - Julian pulgarin
 - Diego Alejandro Zapata García
 
 ## CONTACTANOS
-- alejandro_alzate80191@elpoli.edu.co
 - samuel_alvarez82201@elpoli.edu.co
 - julian_pulgarin23191@elpoli.edu.co
 - diego_zapata82211@elpoli.edu.co
