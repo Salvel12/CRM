@@ -128,5 +128,16 @@ body {
     max-width: 70px;
     margin-left: 5px; /* Ajusta el margen izquierdo para separar la imagen del campo de entrada */
   }
+
+  .cancelar{
+    display: block;
+    margin: 10px;
+    padding: 2px 5px;
+    background-color: #bc3636;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   
   
