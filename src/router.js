@@ -69,6 +69,31 @@ router.get('/history-delete/:id/:property', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+//Methods customers
+
+//Invoke methods for the customer CRUD (Create)
+const crudcustomer = require('./controllers/crud-client');
+router.post('/savecustomer', crudcustomer.save);
+
+
+//Invoke methods for the customer CRUD (Edit)
+router.post('/updatecustomer', crudcustomer.update);
+
+//Invoke methods for the customer CRUD (Delete)
+router.get('/customer-delete/:id', (req, res) => {
+    const id = req.params.id;
+    conexion.query('DELETE FROM customer WHERE customer_id = ?', [id], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.redirect("/customer");
+        }
+    });
+});
+
+=======
+>>>>>>> 53652ea55f9a719ccfdd0bc9e18d301190eeb238
 
 
 
@@ -194,7 +219,11 @@ router.get('/property-edit/:id', (req, res) => {
                 }
             });
         }
+<<<<<<< HEAD
+    }); 
+=======
     });
+>>>>>>> 53652ea55f9a719ccfdd0bc9e18d301190eeb238
 });
 
 //Route to a history item of a property with sql 
@@ -244,8 +273,31 @@ router.get('/property-assignment', (req, res) => {
     res.render(path.join(__dirname, 'views', 'property-assignment.ejs'));
 });
 
-router.get('/customers', (req, res) => {
+//Route to the current customers page
+router.get('/currentcustomers', (req, res) => {
     res.render(path.join(__dirname, 'views', 'currentcustomers.ejs'));
+});
+
+//Route to the edit customer page
+router.get('/editcustomer', (req, res) => {
+    res.render(path.join(__dirname, 'views', 'customer-edit.ejs'));
+});
+
+//Route to the new customer page
+router.get('/newcustomer', (req, res) => {
+    res.render(path.join(__dirname, 'views', 'new-customer.ejs'));
+});
+
+//Route to the agent list page with sql search sentence
+router.get('/customer', (req, res) => {
+    conexion.query('SELECT * FROM customer', (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render(path.join(__dirname, 'views', 'currentcustomers.ejs'), { results: results });
+        }
+    });
+
 });
 
 
