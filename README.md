@@ -16,7 +16,8 @@ Crear un crm que maneje el crear, ver, modificar y borrar sobre los agentes, cli
 
 
 ## EJEMPLOS DEL PROYECTO
-
+![ejemplo1](https://github.com/Salvel12/CRM/blob/front_end/ejemplo1.jpeg)
+![ejemplo3](https://github.com/Salvel12/CRM/blob/front_end/ejemplo3.jpeg)
 
 ## OBJETIVO DEL PROYECTO
 Este proyecto fue contruido con fines Educativos e institucionales, fue construido como parcial de la materia Proyecto de construcción de software de la universidad Politecnico Jaime Izasa Cadavid
@@ -74,10 +75,8 @@ En desarrollo
 
 ## AUTORES
 - Samuel Alvarez Velasquez
-- Julian pulgarin
 - Diego Alejandro Zapata García
 
 ## CONTACTANOS
 - samuel_alvarez82201@elpoli.edu.co
-- julian_pulgarin23191@elpoli.edu.co
 - diego_zapata82211@elpoli.edu.co
