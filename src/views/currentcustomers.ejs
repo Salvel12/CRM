@@ -12,19 +12,23 @@
           <li><a href="/home" class="home">Home</a></li>
           <li><a href="/agent" class="agents">Agents</a></li>
           <li><a href="/property-list" class="properties">List of Properties</a></li>
-          <li><a href="/customers" class="customers">Customer List</a></li>
+          <li><a href="/currentcustomers" class="customers">Customer List</a></li>
           <li><a href="#" class="profile">Profile</a></li>
         </ul>
       </div>
     
       <div class="current-list">
+        <% results.forEach((customer)=> { %>
+       
         <div class="current-item">
           <div class="current-info">
-            <span class="current-name">SANTIAGO VELEZ</span>
+            <span class="current-name">
+              <%= customer.name %>
+            </span>
             <span class="current-actions">
-              <a href="" class="ver">🔍</a>
-              <a href="" class="edit">edit</a>
-              <button class="">Delete</button>
+              <a href="/customer-properties/<%= customer.customer_id %>" class="ver">🔍</a>
+              <a href="/editcustomer/<%= customer.customer_id %>" class="edit">Edit</a>
+              <a href="/customer-delete/<%= customer.customer_id %>" class="delete-button">Delete</a>
             </span>
           </div>
         </div>
@@ -33,11 +37,11 @@
       </div>
     
       <div class="add-current">
-        <a href="" class="add-button">+</a>
+        <a href="/newcustomer" class="add-button">+</a>
       </div>
 
   
-
+      <script src="/scripts/currentcustomers.js"></script>
   
 
 </body>
