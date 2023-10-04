@@ -17,42 +17,52 @@
         </ul>
       </div>
 
+      <% if (customer){ %>
+
+        <form action="/update" method="post">
+          <input id="id" name="id" value="<%= customer.customer_id %>" hidden>
+    
+
       <div class="customer-form">
         <div class="top-row">
           <div class="input-container">
-            <input type="text" id="NAME" name="NAME" required placeholder="NAME">
+            <input type="text" id="NAME" name="NAME" value="<%= customer.name %>" required placeholder="NAME">
           </div>
           <div class="input-container">
-            <input type="text" id="SURNAME" name="SURNAME" required placeholder="SURNAME">
+            <input type="text" id="SALES" name="SALES" value="<%= customer.sales %>" required placeholder="SALES">
           </div>
           <div class="input-container">
-            <input type="text" id="ADDRESS" name="ADDRESS" required placeholder="ADDRESS">
+            <input type="text" id="AGENT_ID" name="AGENT_ID" value="<%= customer.agent_id %>" required placeholder="AGENT_ID">
             
           </div>
         </div>
       
         <div class="middle-row">
           <div class="input-container">
-            <input type="text" id="phone" name="phone" required placeholder="CELL PHONE">
+            <input type="text" id="CELLPHONE" name="CELLPHONE" value="<%= customer.cell_number %>" required placeholder="CELLPHONE">
           </div>
           <div class="input-container">
-            <input type="text" id="EMAIL" name="EMAIL" required placeholder="EMAIL">
-          </div>
-          <div class="input-container">
-            <input type="text" id="DNI" name="DNI" required placeholder="DNI">
+            <input type="text" id="EMAIL" name="EMAIL" value="<%= customer.email %>" required placeholder="EMAIL">
           </div>
          
         </div>
-      
         
       
         <div class="submit-button-container">
-          <button class="submit-button">UPDATE</button>
+          <button type="submit" class="submit-button" tabindex="5">UPDATE</button>
         </div>
+
+        <div class="cancelar">
+          <a href="/customer" class="cancelar">Cancelar</a>
+        </div>
+
       </div>
+      </form>
+
+      <% } %>
       
       
     
-      <script src="/scripts/add-agent.js"></script>
+    
     </body>
     </html>
